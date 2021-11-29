@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::post('login', [AC::class, 'signin']);
-// Route::post('register', [AC::class, 'signup']);
+/* ---Menggunakan Controllers\API --- */
 
-// Route::middleware('auth:sanctum')->group(function () {
-// 	Route::resource('mahasiswa', APIMahasiswaController::class);
-// });
+Route::post('login', [AC::class, 'signin']);
+Route::post('register', [AC::class, 'signup']);
+
+Route::middleware('auth:sanctum')->group(function () {
+	Route::resource('mahasiswa', APIMahasiswaController::class);
+});
 
 
 
@@ -30,7 +32,10 @@ use Illuminate\Support\Facades\Route;
 // 	return $request->user();
 // });
 
-Route::get('mahasiswanoauth', [MahasiswaController::class, 'index']);
-Route::post('mahasiswanoauth', [MahasiswaController::class, 'create']);
-Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
-Route::delete('mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
+
+/* ---Menggunakan Controller MahasiswaController--- */
+
+// Route::get('mahasiswanoauth', [MahasiswaController::class, 'index']);
+// Route::post('mahasiswanoauth', [MahasiswaController::class, 'create']);
+// Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+// Route::delete('mahasiswa/{id}', [MahasiswaController::class, 'destroy']);

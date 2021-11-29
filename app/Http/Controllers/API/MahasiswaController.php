@@ -18,6 +18,20 @@ class MahasiswaController extends BaseController
 	}
 
 
+	public function store(Request $request)
+	{
+		$input = $request->all();
+		$validator = Validator::make($input, [
+			'nama' => 'required',
+			'alamat' => 'required'
+		]);
+		if ($validator->fails()) {
+			return $this->sendError($validator->errors());
+		}
+		$mahasiswa = Mahasiswa::create($input);
+		return $this->sendResponse(new MahasiswaResource($mahasiswa), 'Data Mahasiswa ditambahkan.');
+	}
+
 	public function create(Request $request)
 	{
 		$input = $request->all();

@@ -14,6 +14,10 @@ class Mahasiswa extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        return [
+            'nama' => $this->nama,
+            'alamat' => $this->alamat
+        ];
     }
 }
